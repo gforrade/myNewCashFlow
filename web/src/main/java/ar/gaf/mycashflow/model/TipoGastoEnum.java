@@ -1,0 +1,51 @@
+package ar.gaf.mycashflow.model;
+
+/**
+ * Created by gforrade on 2/6/16.
+ * Copyright (c) 2016, GAF Software INC.
+ */
+public enum TipoGastoEnum {
+    ExpensasMedano,
+    ExpensasDtoGaby,
+    AlquilerDtoGaby,
+    CelularCaro,
+    LuzMedano,
+    LuzDtoGaby,
+    MunicipalidadDtoGaby,
+    GasDtoGaby,
+    AguaDtoGaby,
+    DirecTVMedano,
+    DirecTVDtoGaby,
+    JardineroMedano,
+    EmpleadaMedano,
+    SpeedyDtoGaby,
+    xFlyMedano,
+    SeguroClio,
+    PatenteClio,
+    NaftaClio,
+    Seguro308,
+    Patente308,
+    Nafta308,
+    Monotributo,
+    OSDE,
+    GastosMantenimentoTarjetas,
+    CuotaColegioTomas,
+    CuotaColegioAnaPaula,
+    TarjetaCreditoHijos,
+    TarjetaCreditoVarios,
+    TarjetaCreditoCaro,
+    TarjetaCreditoGaby,
+    Rugby,
+    Danza,
+    GimnasioGaby,
+    NatacionCaro,
+    SicologoTomi,
+    SicologoGaby,
+    SicologoCaro,
+    CuotaClio,
+    Cuota308,
+    PrestamoPersonal,
+    CreditoHipotecario,
+    SuperGaby,
+    SuperCaro
+}

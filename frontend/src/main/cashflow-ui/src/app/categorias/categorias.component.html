@@ -1,0 +1,51 @@
+  <mat-card>
+
+    <mat-card-title>
+      <div flex layout="row">
+        <div flex layout="row" layout-align="start center"  >
+          <mat-icon class="push-right-xs">storage</mat-icon>
+          Categorias
+        </div>
+        <div flex layout="row" layout-align="end center">
+          <a matTooltip="Nueva Categoria" mat-fab [routerLink]="['/categoria/add']"><mat-icon>add</mat-icon></a>
+        </div>
+      </div>
+    </mat-card-title>
+
+
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <td-search-box class="push-left push-right" placeholder="search" [alwaysVisible]="true" (searchDebounce)="search($event)"></td-search-box>
+
+      <td-data-table
+        #dataTableCategorias
+        [data]="categorias"
+        [columns]="columns"
+        [sortBy]="sortBy"
+        [sortOrder]="sortOrder"
+        (sortChange)="sort($event)">
+
+        <ng-template tdDataTableTemplate="operations" let-categoria="row">
+          <div flex layout="row" layout-align="start center" >
+            <button matTooltip="Editar" mat-icon-button color="accent" [routerLink]="['/categoria',categoria.id, 'edit']" >
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+
+            <button matTooltip="Eliminar" mat-icon-button color="warn" (click)="deleteCategoria(categoria)">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+          </div>
+        </ng-template>
+
+      </td-data-table>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <a mat-button color="accent" class="text-upper" [routerLink]="['/']">
+        <span>View More</span>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+
+
+

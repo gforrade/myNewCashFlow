@@ -1,0 +1,84 @@
+<td-layout-card-over cardTitle="Detalle Categoria" cardSubtitle="fill form to {{action}} categoria">
+  <ng-template tdLoading="categoria">
+    <mat-card-content class="push-bottom-none">
+      <form #userForm="ngForm">
+        <div layout="row" class="push-top">
+          <mat-form-field flex>
+            <input matInput
+                   #nombre
+                   #nombreNameElement
+                   #nombreControl="ngModel"
+                   type="text"
+                   placeholder="Nombre"
+                   [(ngModel)]="categoria.nombre"
+                   name="nombre"
+                   maxlength="15"
+                   required>
+            <mat-hint align="start">
+                <span [hidden]="nombreControl.pristine" class="tc-red-600">
+                  <span [hidden]="!nombreControl.hasError('required')">Required</span>
+                </span>
+            </mat-hint>
+            <mat-hint align="end">{{nombreNameElement.value.length}} / 15</mat-hint>
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput
+                   #descripionElement
+                   #descripcionControl="ngModel"
+                   type="text"
+                   placeholder="Descripcion"
+                   [(ngModel)]="categoria.descripcion"
+                   name="descripcion"
+                   maxlength="30"
+            >
+            <mat-hint align="end">{{descripionElement.value.length}} / 30</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!-- Tipo -->
+
+        <div layout="row">
+          <mat-form-field flex>
+            <mat-select placeholder="Tipo" [(value)]="categoria.tipo">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo">
+                {{tipo}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- Grupo -->
+
+        <div>
+          <mat-form-field flex>
+            <mat-select placeholder="Grupo" [(value)]="categoria.grupo.id">
+              <mat-option *ngFor="let grupo of grupos" [value]="grupo.id">
+                {{grupo.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Centro Costos -->
+
+        <div>
+          <mat-form-field flex>
+            <mat-select placeholder="Centro de Costo" [(value)]="categoria.centroCosto.id">
+              <mat-option *ngFor="let centro of centrosCostos" [value]="centro.id">
+                {{centro.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+      </form>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button [disabled]="!userForm.form.valid" color="primary" (click)="save()">SAVE</button>
+      <button mat-button (click)="goBack()">CANCEL</button>
+    </mat-card-actions>
+  </ng-template>
+</td-layout-card-over>

@@ -1,0 +1,56 @@
+<div id="background" layout="column" layout-fill class="text-center">
+
+  <div class="mat-content" layout-padding flex>
+    <div layout-gt-xs="row" layout-align-gt-xs="center center" class="margin" style="padding-top: 10%;">
+      <div flex-gt-xs="100" layout-align-gt-xs="center center" layout="column">
+        <mat-card id="farma_login_container">
+          <mat-card-title>
+            <div id="farma_logo"></div>
+          </mat-card-title>
+          <mat-card-content>
+            <div layout="column" layout-margin>
+              <div layout="row">
+                <mat-form-field flex>
+                  <input matInput
+                         #userControl="ngModel"
+                         placeholder="Usuario"
+                         type="text"
+                         name="usuario"
+                         [(ngModel)]="username"
+                         (ngModelChange)="validate()"
+                         (keyup.enter)="login()"
+                         required>
+                </mat-form-field>
+              </div>
+              <div layout="row" layout-align="center center">
+                <mat-form-field flex>
+                  <input matInput
+                         #passControl="ngModel"
+                         placeholder="Contraseña"
+                         type="{{showPassword ? 'text': 'password'}}"
+                         name="contraseña"
+                         [(ngModel)]="password"
+                         (ngModelChange)="validate()"
+                         (keyup.enter)="login()"
+                         required>
+                  <mat-hint #Hinter layout="column" align="start">
+                  </mat-hint>
+                </mat-form-field>
+                <span class="push-left-xs clickable" align="end" (click)="showPassword = !showPassword">{{showPassword ? 'Ocultar': 'Mostrar'}}</span>
+              </div>
+            </div>
+            <div layout-align="column" layout-margin flex>
+              <button flex class="push-bottom"
+                      mat-raised-button
+                      color="accent"
+                      [disabled]="inValid"
+                      (click)="login()">
+                Ingresar
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
